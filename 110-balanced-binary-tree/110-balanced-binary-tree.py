@@ -13,7 +13,9 @@ class Solution(object):
         if root==None:
             return True
         else :
-            return self.isBalanced(root.left) and self.isBalanced(root.right) and (abs(self.heightFind(root.left)-self.heightFind(root.right))<=1) 
+            return self.isBalanced(root.left) \
+                    and self.isBalanced(root.right) \
+                    and (abs(self.heightFind(root.left)-self.heightFind(root.right))<=1) 
 
     @classmethod
     def heightFind(self, root):
