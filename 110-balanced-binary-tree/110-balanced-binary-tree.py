@@ -22,4 +22,26 @@ class Solution(object):
             return -1
         else :
             return 1+max(left,right)
+
+#First Solution
+
+# class Solution(object):
+#     def isBalanced(self, root):
+#         """
+#         :type root: TreeNode
+#         :rtype: bool
+#         """
+#         if root==None:
+#             return True
+#         else :
+#             return self.isBalanced(root.left) \
+#                     and self.isBalanced(root.right) \
+#                     and (abs(self.heightFind(root.left)-self.heightFind(root.right))<=1) 
+
+#     @classmethod
+#     def heightFind(self, root):
+#         if root==None:
+#             return 0
+#         else :
+#             return 1+max(self.heightFind(root.left), self.heightFind(root.right))
         
