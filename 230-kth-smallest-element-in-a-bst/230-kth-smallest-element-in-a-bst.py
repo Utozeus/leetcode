@@ -29,17 +29,22 @@ class Solution(object):
     
     @classmethod
     def help(self, root, visitList, k) :
-        if len(visitList)==k:
-            return visitList
+        
         if root==None:
             return visitList
         else :
             if root.left!=None:
-                visitList=self.help(root.left, visitList,k)
-                visitList=self.visit(root,visitList)
-                visitList=self.help(root.right, visitList,k)
-                return visitList
+                if len(visitList)==k:
+                    return visitList
+                else:
+                    visitList=self.help(root.left, visitList,k)
+                    visitList=self.visit(root,visitList)
+                    visitList=self.help(root.right, visitList,k)
+                    return visitList
             else : #root.left==None
-                visitList=self.visit(root, visitList)
-                visitList=self.help(root.right, visitList,k)
-                return visitList
+                if len(visitList)==k:
+                    return visitList
+                else:
+                    visitList=self.visit(root, visitList)
+                    visitList=self.help(root.right, visitList,k)
+                    return visitList
