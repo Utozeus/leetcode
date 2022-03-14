@@ -10,17 +10,16 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
-        if root==None:
-            return True
-        else :
-            return self.isBalanced(root.left) \
-                    and self.isBalanced(root.right) \
-                    and (abs(self.heightFind(root.left)-self.heightFind(root.right))<=1) 
+        return self.check(root)!=-1
 
     @classmethod
-    def heightFind(self, root):
+    def check(self, root):
         if root==None:
             return 0
+        left=self.check(root.left)
+        right=self.check(root.right)
+        if left==-1 or right==-1 or abs(left-right)>1:
+            return -1
         else :
-            return 1+max(self.heightFind(root.left), self.heightFind(root.right))
+            return 1+max(left,right)
         
