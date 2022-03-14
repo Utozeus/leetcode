@@ -17,7 +17,7 @@ class Solution(object):
         
         visitList=[] #for in-order stack
                 
-        return self.help(root, visitList)[k-1]
+        return self.help(root, visitList,k)[k-1]
         
         
     @classmethod    
@@ -28,16 +28,18 @@ class Solution(object):
             return visitList+[root.val]
     
     @classmethod
-    def help(self, root, visitList) :
+    def help(self, root, visitList, k) :
+        if len(visitList)==k:
+            return visitList
         if root==None:
             return visitList
         else :
             if root.left!=None:
-                visitList=self.help(root.left, visitList)
+                visitList=self.help(root.left, visitList,k)
                 visitList=self.visit(root,visitList)
-                visitList=self.help(root.right, visitList)
+                visitList=self.help(root.right, visitList,k)
                 return visitList
             else : #root.left==None
                 visitList=self.visit(root, visitList)
-                visitList=self.help(root.right, visitList)
+                visitList=self.help(root.right, visitList,k)
                 return visitList
