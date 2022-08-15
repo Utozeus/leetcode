@@ -21,11 +21,6 @@ class Solution(object):
         return ans
         
         
-        
-        
-        
-        
-        
         '''
         이하 1차 acceptance
         '''
